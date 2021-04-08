@@ -22,6 +22,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.cupcake.databinding.FragmentFlavorBinding
 import com.example.cupcake.model.OrderViewModel
@@ -51,10 +52,8 @@ class FlavorFragment : Fragment() {
 
         binding?.apply {
             lifecycleOwner = viewLifecycleOwner
-
             viewModel = sharedViewModel
-            nextButton.setOnClickListener { goToNextScreen() }
-        }
+            flavorFragment = this@FlavorFragment}
     }
 
     /**
