@@ -21,10 +21,10 @@ class OrderViewModel : ViewModel() {
     val flavor: LiveData<String> = _flavor
 
     private val _date = MutableLiveData<String>()
-    val  date: LiveData<String> = _date
+    val date: LiveData<String> = _date
 
     private val _price = MutableLiveData<Double>()
-    val price: LiveData<String> = Transformations.map(_price){
+    val price: LiveData<String> = Transformations.map(_price) {
         NumberFormat.getCurrencyInstance().format(it)
     }
 

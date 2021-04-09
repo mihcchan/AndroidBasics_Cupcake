@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
      Copyright (C) 2020 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,13 +15,16 @@
 -->
 <!-- Layout for order summary -->
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".SummaryFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.example.cupcake.model.OrderViewModel" />
+
         <variable
             name="summaryFragment"
             type="com.example.cupcake.SummaryFragment" />
@@ -61,8 +63,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_summary_margin"
-                    tools:text="6 cupcakes"
-                    android:text="@{viewModel.quantity.toString()}"/>
+                    android:text="@{viewModel.quantity.toString()}"
+                    tools:text="6 cupcakes" />
 
                 <View
                     android:id="@+id/divider1"
@@ -85,8 +87,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_summary_margin"
-                    tools:text="Chocolate"
-                    android:text="@{viewModel.flavor}" />
+                    android:text="@{viewModel.flavor}"
+                    tools:text="Chocolate" />
 
                 <View
                     android:id="@+id/divider2"
@@ -109,8 +111,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/order_summary_margin"
-                    tools:text="Sunday"
-                    android:text="@{viewModel.date}" />
+                    android:text="@{viewModel.date}"
+                    tools:text="Sunday" />
 
                 <View
                     android:id="@+id/divider3"
@@ -122,24 +124,32 @@
 
                 <TextView
                     android:id="@+id/total"
-                    android:text="@{@string/total_price(viewModel.price)}"
                     style="@style/Widget.Cupcake.TextView.FinalPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginTop="@dimen/side_margin"
+                    android:text="@{@string/total_price(viewModel.price)}"
                     tools:text="Total $5.00" />
 
             </LinearLayout>
 
             <Button
                 android:id="@+id/send_button"
-                android:onClick="@{() -> summaryFragment.sendOrder()}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/side_margin"
+                android:onClick="@{() -> summaryFragment.sendOrder()}"
                 android:text="@string/send" />
 
+            <Button
+                android:id="@+id/cancel_button"
+                style="?attr/materialButtonOutlinedStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_between_elements"
+                android:onClick="@{() -> summaryFragment.cancelOrder()}"
+                android:text="@string/cancel" />
         </LinearLayout>
     </ScrollView>
 </layout>
